@@ -1,3 +1,8 @@
+# $Id$
+#
+# Daisuke Maki <dmaki@cpan.org>
+# All rights reserved.
+
 package Template::Plugin::DateTime;
 use strict;
 use DateTime;
@@ -6,7 +11,7 @@ use Template::Plugin;
 use vars qw($VERSION @ISA);
 BEGIN
 {
-    $VERSION = 0.01;
+    $VERSION = '0.02';
     @ISA     = qw(Template::Plugin);
 }
 
@@ -119,6 +124,6 @@ L<Template>
 
 =head1 AUTHOR
 
-Copyright 2004 Daisuke Maki E<gt>daisuke@cpan.orgE<lt>. All rights reserved.
+Copyright 2004 Daisuke Maki E<lt>dmaki@cpan.orgE<gt>. All rights reserved.
 
 =cut
