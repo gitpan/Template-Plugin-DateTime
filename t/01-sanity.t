@@ -1,6 +1,6 @@
 #!perl
 use strict;
-use Test::More (tests => 7);
+use Test::More (tests => 8);
 BEGIN
 {
     use_ok("Template::Plugin::DateTime");
@@ -74,3 +74,10 @@ EOM
 $tt->process(\$template, undef, \$output);
 like($output, qr(^ok$));
 
+$output = '';
+$template = <<EOM;
+[% USE date = DateTime(year => 2005, month => 7, day => 13, time_zone => 'Asia/Tokyo') %]
+[% date.datetime %]
+EOM
+$tt->process(\$template, undef, \$output);
+is($output, "2005-07-13T00:00:00");

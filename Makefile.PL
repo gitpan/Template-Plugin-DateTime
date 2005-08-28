@@ -2,14 +2,14 @@
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
+          'PL_FILES' => {},
+          'INSTALLDIRS' => 'site',
           'NAME' => 'Template::Plugin::DateTime',
           'VERSION_FROM' => 'lib/Template/Plugin/DateTime.pm',
           'PREREQ_PM' => {
-                           'DateTime' => '0',
-                           'Template' => '0',
-                           'Test::More' => '0'
-                         },
-          'INSTALLDIRS' => 'site',
-          'PL_FILES' => {}
+                           'Test::More' => 0,
+                           'DateTime' => 0,
+                           'Template' => 0
+                         }
         )
 ;

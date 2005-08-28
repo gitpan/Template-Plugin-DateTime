@@ -1,9 +1,8 @@
---- #YAML:1.0
+---
 name: Template-Plugin-DateTime
-version: 0.02
+version: 0.03
 author:
-  - |-
-    Copyright 2004 Daisuke Maki E<lt>dmaki@cpan.orgE<gt>. All rights reserved.
+  - Copyright (c) 2004-3005 Daisuke Maki E<lt>dmaki@cpan.orgE<gt>. All rights reserved.
 abstract: A Template Plugin To Use DateTime Objects
 license: perl
 requires:
@@ -16,5 +15,5 @@ build_requires:
 provides:
   Template::Plugin::DateTime:
     file: lib/Template/Plugin/DateTime.pm
-    version: 0.02
-generated_by: Module::Build version 0.2607
+    version: 0.03
+generated_by: Module::Build version 0.2611

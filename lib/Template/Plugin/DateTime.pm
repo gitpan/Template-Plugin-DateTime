@@ -1,6 +1,6 @@
-# $Id$
+# DateTime.pm,v 1.2 2005/08/28 14:36:18 lestrrat Exp
 #
-# Daisuke Maki <dmaki@cpan.org>
+# Copyright (c) 2004-2005 Daisuke Maki <dmaki@cpan.org>
 # All rights reserved.
 
 package Template::Plugin::DateTime;
@@ -11,7 +11,7 @@ use Template::Plugin;
 use vars qw($VERSION @ISA);
 BEGIN
 {
-    $VERSION = '0.02';
+    $VERSION = '0.03';
     @ISA     = qw(Template::Plugin);
 }
 
@@ -37,9 +37,7 @@ sub new
     }
 
     # none of the above, use regular call to new.
-    if (keys %args) {
-        return DateTime->new(%args);
-    }
+    return DateTime->new(%args);
 }
 
 1;
@@ -124,6 +122,6 @@ L<Template>
 
 =head1 AUTHOR
 
-Copyright 2004 Daisuke Maki E<lt>dmaki@cpan.orgE<gt>. All rights reserved.
+Copyright (c) 2004-3005 Daisuke Maki E<lt>dmaki@cpan.orgE<gt>. All rights reserved.
 
 =cut

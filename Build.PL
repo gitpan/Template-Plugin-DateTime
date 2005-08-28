@@ -1,6 +1,6 @@
-# $Id$
+# Build.PL,v 1.2 2005/08/28 14:36:17 lestrrat Exp
 #
-# Daisuke Maki <dmaki@cpan.org>
+# Copyright (c) 2004-2005 Daisuke Maki <dmaki@cpan.org>
 # All rights reserved.
 
 use strict;
@@ -30,7 +30,6 @@ my $build = $class->new(
     recommends => {
         'perl' => '5.6.1',
     },
-    sign => 1,
     create_makefile_pl => 'traditional'
 );
 $build->create_build_script;
