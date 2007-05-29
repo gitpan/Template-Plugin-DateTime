@@ -1,17 +1,17 @@
 # DateTime.pm,v 1.2 2005/08/28 14:36:18 lestrrat Exp
 #
-# Copyright (c) 2004-2005 Daisuke Maki <dmaki@cpan.org>
-# All rights reserved.
+# Copyright (c) 2004-2007 Daisuke Maki <daisuke@endeworks.jp>
 
 package Template::Plugin::DateTime;
 use strict;
+use warnings;
 use DateTime;
 use Template::Plugin;
 
 use vars qw($VERSION @ISA);
 BEGIN
 {
-    $VERSION = '0.03';
+    $VERSION = '0.05';
     @ISA     = qw(Template::Plugin);
 }
 
@@ -65,6 +65,12 @@ The basic idea to use a DateTime plugin is as follows:
 
 It is not meant to be a datetime string parser, just a thin layer on top
 of DateTime.pm so that you can do datetime arithmetic from within TT.
+
+=head1 METHODS
+
+=head2 new
+
+This is used internally. You won't be using it from your templates.
 
 =head1 CONSTRUCTOR
 
@@ -122,6 +128,13 @@ L<Template>
 
 =head1 AUTHOR
 
-Copyright (c) 2004-3005 Daisuke Maki E<lt>dmaki@cpan.orgE<gt>. All rights reserved.
+Copyright (c) 2004-2007 Daisuke Maki E<lt>daisuke@endeworks.jpE<gt>.
+
+=head1 LICENSE
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
+See http://www.perl.com/perl/misc/Artistic.html
 
 =cut

@@ -1,6 +1,13 @@
 Changes
 =======
 
+0.05 - 29 May 2007
+  - Migrate to Module::Install
+
+0.04 - Never Released
+  - No code change.
+  - Add POD tests.
+
 0.03 - 28 Aug 2005
   - Very slight modification to work better with Devel::Cover
 
