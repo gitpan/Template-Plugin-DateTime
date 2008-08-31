@@ -6,13 +6,15 @@ package Template::Plugin::DateTime;
 use strict;
 use warnings;
 use DateTime;
+use DateTime::Format::Strptime;
 use Template::Plugin;
 
-use vars qw($VERSION @ISA);
+use vars qw($AUTHORITY $VERSION @ISA);
 BEGIN
 {
-    $VERSION = '0.05';
-    @ISA     = qw(Template::Plugin);
+    $VERSION   = '0.06001';
+    $AUTHORITY = 'cpan:DMAKI';
+    @ISA       = qw(Template::Plugin);
 }
 
 sub new
@@ -34,7 +36,12 @@ sub new
         return DateTime->from_epoch(epoch => $epoch, %args);
     } elsif (my $object = delete $args{from_object}) {
         return DateTime->from_object(object => $object, %args);
-    }
+    } elsif (my $timestr = delete $args{from_string}) {
+		my $pattern = delete $args{pattern} || '%Y-%m-%d %H:%M:%S';
+		my $parser = DateTime::Format::Strptime->new( pattern => $pattern, %args);
+		my $dt = $parser->parse_datetime($timestr);
+		return $dt;
+	}
 
     # none of the above, use regular call to new.
     return DateTime->new(%args);
@@ -63,8 +70,12 @@ The basic idea to use a DateTime plugin is as follows:
 
   USE date = DateTime(year = 2004, month = 4, day = 1);
 
-It is not meant to be a datetime string parser, just a thin layer on top
-of DateTime.pm so that you can do datetime arithmetic from within TT.
+-OR-
+
+by passing a pattern to parse a date by string using DateTime::Format::Strptime
+
+	USE date = DateTime(from_string => '2008-05-30 00:00:00', pattern => '%Y-%m-%d %H:%M:%S', time_zone => 'America/New_York');
+
 
 =head1 METHODS
 
@@ -119,11 +130,22 @@ and C<year> and C<month> parameters must be specified.
 
   [% USE date = DateTime(last_day_of_month = 1, year = 2004, month = 4 ) %]
 
+=item from_string
+
+Creates a DateTime object by calling DateTime::Format::Strptime
+The value for the c<from_string> parameter is a string value,
+and C<pattern> parameters is optional and defaults to '%Y-%m-%d %H:%M:%S'. 
+See L<DateTime::Format::Strptime> for other optional parameters.
+
+  [% USE date = DateTime(from_string => '2008-05-30 10:00:00', pattern => '%Y-%m-%d %H:%M:%S') %]
+
+
 =back
 
 =head1 SEE ALSO
 
 L<DateTime>
+L<DateTime::Format::Strptime>
 L<Template>
 
 =head1 AUTHOR

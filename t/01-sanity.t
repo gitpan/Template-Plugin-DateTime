@@ -1,6 +1,6 @@
 #!perl
 use strict;
-use Test::More (tests => 8);
+use Test::More (tests => 9);
 BEGIN
 {
     use_ok("Template::Plugin::DateTime");
@@ -81,3 +81,11 @@ $template = <<EOM;
 EOM
 $tt->process(\$template, undef, \$output);
 is($output, "2005-07-13T00:00:00");
+
+$output = '';
+$template = <<EOM;
+[% USE date = DateTime(from_string => '2008-05-30 10:00:00', pattern => '%Y-%m-%d %H:%M:%S') %]
+[% date.datetime %]
+EOM
+$tt->process(\$template, undef, \$output);
+is($output, "2008-05-30T10:00:00");

@@ -1,6 +1,10 @@
 Changes
 =======
 
+0.06000 - 31 Aug 2008
+  - Apply Jeff Lanza's patch, and add a from_string mode, where it makes it
+    possible to create a DateTime object from a string.
+
 0.05 - 29 May 2007
   - Migrate to Module::Install
 
