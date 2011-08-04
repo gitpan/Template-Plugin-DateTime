@@ -1,7 +1,3 @@
-# DateTime.pm,v 1.2 2005/08/28 14:36:18 lestrrat Exp
-#
-# Copyright (c) 2004-2007 Daisuke Maki <daisuke@endeworks.jp>
-
 package Template::Plugin::DateTime;
 use strict;
 use warnings;
@@ -12,9 +8,9 @@ use Template::Plugin;
 use vars qw($AUTHORITY $VERSION @ISA);
 BEGIN
 {
-    $VERSION   = '0.06001';
+    $VERSION   = '0.06002';
     $AUTHORITY = 'cpan:DMAKI';
-    @ISA       = qw(Template::Plugin);
+    @ISA       = (qw(Template::Plugin));
 }
 
 sub new
@@ -25,7 +21,7 @@ sub new
     my %args = ref($_[0]) eq 'HASH' ? %{$_[0]} : ();
 
     # boolean args: now, today, last_day_of_month
-    foreach my $arg qw(now today last_day_of_month) {
+    foreach my $arg (qw(now today last_day_of_month)){
         if (delete $args{$arg}) {
             return DateTime->$arg(%args);
         }

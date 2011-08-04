@@ -1,6 +1,13 @@
 Changes
 =======
 
+0.06002 - 04 Aug 2011
+  - Fix rt#70001, 5.14 deprecations.
+  - Moved to github
+
+0.06001 - 31 Aug 2008
+  - ??? 
+
 0.06000 - 31 Aug 2008
   - Apply Jeff Lanza's patch, and add a from_string mode, where it makes it
     possible to create a DateTime object from a string.
